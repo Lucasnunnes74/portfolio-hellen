@@ -66,8 +66,8 @@ export default function Hero() {
                 className={styles.photo}
                 src={profile.photo.src}
                 alt={profile.photo.alt}
-                width={544}
-                height={680}
+                width={1086}
+                height={1448}
                 fetchPriority="high"
                 decoding="async"
                 onError={() => setPhotoFailed(true)}

@@ -44,7 +44,7 @@ function ContactCard({ item }: { item: ContactItem }) {
 
 export default function Contact() {
   return (
-    <Section info={sections.contact} tone="band">
+    <Section info={sections.contact} tone="tint">
       <ul className={styles.grid}>
         {contacts.map((item, index) => (
           <li key={item.kind} className={styles.cell}>

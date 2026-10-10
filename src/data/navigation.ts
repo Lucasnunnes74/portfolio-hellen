@@ -30,7 +30,7 @@ export const sections = {
     id: 'contato',
     label: 'Contato',
     title: 'Vamos conversar?',
-    intro: 'Fale comigo por e-mail, telefone ou LinkedIn.',
+    intro: 'Fale comigo por e-mail, telefone, WhatsApp ou LinkedIn.',
   },
 } satisfies Record<string, SectionInfo>
 

@@ -1,0 +1,78 @@
+/* Círculo só com o ícone no celular; a partir de 40rem vira uma pílula com o texto "WhatsApp". */
+.button {
+  position: fixed;
+  right: max(var(--space-4), env(safe-area-inset-right));
+  bottom: max(var(--space-4), env(safe-area-inset-bottom));
+  z-index: var(--z-float);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-width: 3.5rem;
+  height: 3.5rem;
+  padding: 0;
+  border-radius: var(--radius-pill);
+  background: var(--color-whatsapp);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: var(--shadow-lg);
+  transition:
+    background-color var(--dur-fast) ease,
+    transform var(--dur-fast) var(--ease-out);
+}
+
+.button:hover {
+  background: var(--color-whatsapp-hover);
+  transform: translateY(-2px);
+}
+
+.icon {
+  flex: none;
+  width: 1.75rem;
+  height: 1.75rem;
+}
+
+.label {
+  display: none;
+}
+
+@media (min-width: 40rem) {
+  .button {
+    padding: 0 1.375rem 0 1.125rem;
+  }
+
+  .label {
+    display: inline;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .button {
+    animation: pop 0.6s var(--ease-out) 0.8s both;
+  }
+}
+
+@keyframes pop {
+  from {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button:hover {
+    transform: none;
+  }
+}
+
+@media print {
+  .button {
+    display: none;
+  }
+}

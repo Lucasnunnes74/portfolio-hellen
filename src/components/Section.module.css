@@ -13,11 +13,9 @@
   background: var(--color-bg-alt);
 }
 
-.band {
-  --color-heading: var(--color-band-text);
-  --color-focus: var(--color-band-accent);
-  background: var(--color-band-bg);
-  color: var(--color-band-text);
+/* Faixa clara com leve tom de azul-petróleo, usada para destacar o contato. */
+.tint {
+  background: var(--color-primary-soft);
 }
 
 .inner {
@@ -48,14 +46,6 @@
   background: var(--color-accent);
 }
 
-.band .eyebrow {
-  color: var(--color-band-accent);
-}
-
-.band .eyebrow::after {
-  background: var(--color-band-accent);
-}
-
 .title {
   font-size: var(--fs-2xl);
 }
@@ -63,10 +53,6 @@
 .intro {
   margin-top: var(--space-3);
   color: var(--color-text-muted);
-}
-
-.band .intro {
-  color: var(--color-band-muted);
 }
 
 .body {

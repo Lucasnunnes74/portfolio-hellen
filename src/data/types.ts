@@ -14,6 +14,8 @@ export interface Profile {
   photo: { src: string; alt: string }
   resume: { href: string; fileName: string }
   cta: { contact: string; resume: string }
+  /** Botão flutuante de WhatsApp. `href` é o link wa.me já com a mensagem inicial. */
+  whatsapp: { href: string; label: string; ariaLabel: string }
   /** Resumo profissional, um parágrafo por item. */
   summary: string[]
 }

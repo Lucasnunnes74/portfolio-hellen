@@ -1,5 +1,9 @@
 import type { ContactItem, Profile } from './types.ts'
 
+// Número com DDI (55) e DDD, só dígitos. É o mesmo telefone da seção de contato.
+const whatsappNumber = '5511986641805'
+const whatsappMessage = 'Olá, Hellen! Vi seu portfólio e gostaria de conversar.'
+
 export const profile: Profile = {
   name: 'Hellen Almeida',
   role: 'Analista de Logística',
@@ -11,6 +15,11 @@ export const profile: Profile = {
   photo: { src: '/foto-hellen.jpg', alt: 'Foto de perfil de Hellen Almeida' },
   resume: { href: '/curriculo-hellen-almeida.pdf', fileName: 'Curriculo-Hellen-Almeida.pdf' },
   cta: { contact: 'Falar comigo', resume: 'Baixar currículo' },
+  whatsapp: {
+    href: `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
+    label: 'WhatsApp',
+    ariaLabel: 'Conversar com Hellen no WhatsApp (abre em nova aba)',
+  },
   summary: [
     'Bacharel em Logística com ampla vivência na área, construída de forma progressiva em empresas de grande porte dos segmentos de varejo e serviços financeiros.',
     'Experiência no planejamento e na gestão de fluxos logísticos, acompanhamento de pedidos e transferências Middle Mile, assegurando rastreabilidade das mercadorias, cumprimento de prazos e atendimento aos níveis de serviço estabelecidos.',
@@ -28,14 +37,14 @@ export const contacts: ContactItem[] = [
   },
   {
     kind: 'phone',
-    label: 'Telefone',
+    label: 'Telefone e WhatsApp',
     value: '(11) 98664-1805',
     href: 'tel:+5511986641805',
   },
   {
     kind: 'linkedin',
     label: 'LinkedIn',
-    value: 'linkedin.com/in/hellen-almeida-568046137',
+    value: 'Hellen Almeida',
     href: 'https://www.linkedin.com/in/hellen-almeida-568046137',
     external: true,
   },

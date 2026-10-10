@@ -7,8 +7,8 @@ import styles from './Section.module.css'
 
 interface SectionProps {
   info: SectionInfo
-  /** Cor de fundo: padrão, alternada (cinza-azulado) ou faixa escura. */
-  tone?: 'default' | 'alt' | 'band'
+  /** Cor de fundo: padrão, alternada (cinza-azulado) ou faixa com leve tom de azul-petróleo. */
+  tone?: 'default' | 'alt' | 'tint'
   /** "split" coloca o título ao lado do conteúdo em telas largas. */
   layout?: 'stacked' | 'split'
   /** Reduz o espaço vertical, para seções com pouco conteúdo. */

@@ -38,8 +38,10 @@ Os componentes só renderizam o que vem de `src/data`. Textos de interface, como
 | Experiência | `src/data/experience.ts` |
 | Formação | `src/data/education.ts` |
 | Itens do menu e títulos das seções | `src/data/navigation.ts` |
-| Cores (claro e escuro), fonte, espaçamentos | `src/styles/tokens.css` |
+| Cores, fonte, espaçamentos | `src/styles/tokens.css` |
 | Título da aba, descrição, Open Graph, Twitter Card, JSON-LD | `index.html` |
+
+O botão flutuante de WhatsApp usa o número e a mensagem inicial definidos no topo de `profile.ts` (`whatsappNumber` e `whatsappMessage`). O número vai só com dígitos, incluindo o 55 do Brasil e o DDD.
 
 Na experiência, mantenha do cargo mais recente para o mais antigo. Quando uma empresa tem mais de um cargo (como a Lojas Renner), o site mostra automaticamente a **progressão de carreira**.
 
@@ -51,7 +53,7 @@ Tudo o que está em `public/` é publicado e acessado pelo caminho absoluto (ex.
 
 | Arquivo | Uso |
 | --- | --- |
-| `public/foto-hellen.jpg` | Foto do início. Use um retrato na vertical (proporção 4:5, ex.: 800×1000). Se o arquivo não existir, aparece um monograma "HA". |
+| `public/foto-hellen.jpg` | Foto do início. Use um retrato na vertical (proporção entre 3:4 e 4:5, ex.: 1086×1448). Se o arquivo não existir, aparece um monograma "HA". |
 | `public/og-image.jpg` | Imagem que aparece ao compartilhar o link (WhatsApp, LinkedIn...). Tamanho 1200×630. |
 | `public/favicon.png` | Ícone da aba do navegador (quadrado). |
 | `public/curriculo-hellen-almeida.pdf` | Arquivo do botão "Baixar currículo". Para atualizar, substitua mantendo o nome. |
@@ -85,6 +87,6 @@ Sem nenhuma das duas, os endereços ficam relativos: funciona no site, mas Whats
 ## Acessibilidade e desempenho
 
 - HTML semântico (`header`, `nav`, `main`, `section`, `footer`), link "Pular para o conteúdo", foco visível e navegação completa por teclado. O menu do celular fecha com Esc.
-- Cores com contraste AA nos modos claro e escuro (automático, via `prefers-color-scheme`).
+- Visual sempre claro, mesmo com o aparelho no modo escuro, e cores com contraste AA.
 - Animações de entrada com IntersectionObserver, desativadas para quem prefere menos movimento (`prefers-reduced-motion`).
 - Mobile-first, de 320 px a telas grandes, sem rolagem horizontal.

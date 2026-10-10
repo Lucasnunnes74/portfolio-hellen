@@ -1,11 +1,12 @@
 /*
   Tokens de design: cores, tipografia, espaçamentos, formas e movimento.
   Para mudar a identidade visual do site, ajuste os valores aqui.
+  O site é sempre claro, mesmo quando o aparelho está no modo escuro.
   Todos os pares de cor de texto/fundo foram conferidos para contraste AA (WCAG 2.1).
 */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: light;
 
   /* Tipografia */
   --font-sans: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
@@ -33,6 +34,7 @@
   --gutter: clamp(1rem, 0.5rem + 3vw, 2rem);
   --container: 72rem;
   --header-h: 4rem;
+  --z-float: 40;
   --z-header: 50;
   --z-skip: 100;
 
@@ -49,7 +51,7 @@
   --dur-base: 260ms;
   --dur-slow: 700ms;
 
-  /* Cores: modo claro */
+  /* Cores */
   --color-bg: #f5f9fa;
   --color-bg-alt: #e9f1f4;
   --color-surface: #ffffff;
@@ -69,14 +71,9 @@
   --color-accent-soft: #ffe9da;
   --color-focus: #d9560f;
 
-  /* Faixa escura (contato) e rodapé */
-  --color-band-bg: #0b3a47;
-  --color-band-surface: #114a5a;
-  --color-band-text: #eaf4f6;
-  --color-band-muted: #b9d3da;
-  --color-band-accent: #ffb27a;
-  --color-footer-bg: #072b35;
-  --color-footer-text: #b9d3da;
+  /* Verde do botão de WhatsApp, escurecido o bastante para texto branco (5,2:1) */
+  --color-whatsapp: #0f7a68;
+  --color-whatsapp-hover: #0b6657;
 
   /* Sombras e decoração do hero */
   --shadow-sm: 0 1px 2px rgb(10 51 64 / 6%), 0 2px 8px rgb(10 51 64 / 5%);
@@ -85,39 +82,4 @@
   --grid-line: rgb(15 76 92 / 7%);
   --glow-primary: rgb(42 138 160 / 20%);
   --glow-accent: rgb(217 86 15 / 10%);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --color-bg: #0a1a20;
-    --color-bg-alt: #0d2229;
-    --color-surface: #112830;
-    --color-border: #1f3b45;
-    --color-border-strong: #35616f;
-    --color-text: #e8f2f5;
-    --color-text-muted: #a9c1c9;
-    --color-heading: #f3fafc;
-
-    --color-primary: #7cc9da;
-    --color-primary-hover: #a3dbe8;
-    --color-on-primary: #05222b;
-    --color-primary-soft: #153741;
-
-    --color-accent: #ff9548;
-    --color-accent-text: #ffb27a;
-    --color-accent-soft: #3a2415;
-    --color-focus: #ffb27a;
-
-    --color-band-bg: #0f3440;
-    --color-band-surface: #164654;
-    --color-footer-bg: #07151a;
-    --color-footer-text: #a9c1c9;
-
-    --shadow-sm: 0 1px 2px rgb(0 0 0 / 30%), 0 2px 8px rgb(0 0 0 / 20%);
-    --shadow-md: 0 2px 4px rgb(0 0 0 / 30%), 0 12px 28px rgb(0 0 0 / 35%);
-    --shadow-lg: 0 4px 8px rgb(0 0 0 / 35%), 0 24px 56px rgb(0 0 0 / 45%);
-    --grid-line: rgb(124 201 218 / 8%);
-    --glow-primary: rgb(42 138 160 / 26%);
-    --glow-accent: rgb(255 149 72 / 9%);
-  }
 }

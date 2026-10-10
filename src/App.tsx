@@ -7,6 +7,7 @@ import Header from './components/Header.tsx'
 import Hero from './components/Hero.tsx'
 import SkipLink from './components/SkipLink.tsx'
 import Skills from './components/Skills.tsx'
+import WhatsAppButton from './components/WhatsAppButton.tsx'
 import { useScrollToHash } from './hooks/useScrollToHash.ts'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Contact />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   )
 }
