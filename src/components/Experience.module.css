@@ -1,0 +1,43 @@
+/*
+  Linha do tempo vertical. Cada empresa tem um marcador à esquerda; o traço liga um marcador ao seguinte.
+  As variáveis abaixo também são usadas em ExperienceItem.module.css (marcador e cartão):
+  --card-pad     respiro interno do cartão
+  --marker-size  diâmetro do marcador
+  --marker-top   posição vertical do marcador, calculada para alinhar com o nome da empresa
+*/
+.timeline {
+  --indent: 2rem;
+  --timeline-gap: var(--space-6);
+  --card-pad: clamp(1.125rem, 0.9rem + 1.5vw, 2rem);
+  --marker-size: 1.25rem;
+  --marker-top: calc(var(--card-pad) + var(--fs-xl) * 0.56 - var(--marker-size) / 2);
+  display: grid;
+  gap: var(--timeline-gap);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  padding-left: var(--indent);
+}
+
+/* Trecho do traço: do centro deste marcador até o centro do próximo. */
+.item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  top: calc(var(--marker-top) + var(--marker-size) / 2);
+  bottom: calc(-1 * (var(--timeline-gap) + var(--marker-top) + var(--marker-size) / 2));
+  left: calc(var(--marker-size) / 2 - 1px);
+  width: 2px;
+  border-radius: 2px;
+  background: var(--color-border-strong);
+}
+
+@media (min-width: 48rem) {
+  .timeline {
+    --indent: 3.5rem;
+    --marker-size: 1.5rem;
+  }
+}

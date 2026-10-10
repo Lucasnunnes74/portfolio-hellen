@@ -1,0 +1,200 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: var(--z-header);
+  background: var(--color-bg);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color var(--dur-base) ease,
+    border-color var(--dur-base) ease,
+    box-shadow var(--dur-base) ease;
+}
+
+@supports (background: color-mix(in srgb, red, blue)) {
+  .header {
+    background: color-mix(in srgb, var(--color-bg) 82%, transparent);
+    -webkit-backdrop-filter: saturate(160%) blur(14px);
+    backdrop-filter: saturate(160%) blur(14px);
+  }
+
+  .header[data-menu-open='true'] {
+    background: var(--color-bg);
+  }
+}
+
+.header[data-scrolled='true'],
+.header[data-menu-open='true'] {
+  border-bottom-color: var(--color-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  min-height: var(--header-h);
+}
+
+/* Marca */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 2.75rem;
+  color: var(--color-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.monogram {
+  display: grid;
+  place-items: center;
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 0.65rem;
+  background: linear-gradient(145deg, #14677b, #0f4c5c 55%, #0a3340);
+  color: #ffffff;
+  font-size: 0.8125rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+/* Botão do menu (mobile) */
+.toggle {
+  display: grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  padding: 0;
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  color: var(--color-heading);
+  cursor: pointer;
+  transition: background-color var(--dur-fast) ease;
+}
+
+.toggle:hover {
+  background: var(--color-primary-soft);
+}
+
+.toggleIcon {
+  font-size: 1.5rem;
+}
+
+/* Menu: painel que desce do header no mobile */
+.nav {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  padding: var(--space-2) var(--gutter) var(--space-5);
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: var(--shadow-md);
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(-0.5rem);
+  transition:
+    opacity var(--dur-base) var(--ease-out),
+    transform var(--dur-base) var(--ease-out),
+    visibility 0s linear var(--dur-base);
+}
+
+.header[data-menu-open='true'] .nav {
+  visibility: visible;
+  opacity: 1;
+  transform: none;
+  transition-delay: 0s;
+}
+
+.links {
+  display: grid;
+  gap: var(--space-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  min-height: 3rem;
+  padding-inline: var(--space-4);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  font-weight: 600;
+  text-decoration: none;
+  transition:
+    background-color var(--dur-fast) ease,
+    color var(--dur-fast) ease;
+}
+
+.link:hover,
+.link[aria-current='location'] {
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+
+/* Desktop: menu em linha, sem botão */
+@media (min-width: 48rem) {
+  .toggle {
+    display: none;
+  }
+
+  .nav {
+    position: static;
+    padding: 0;
+    background: none;
+    border: 0;
+    box-shadow: none;
+    visibility: visible;
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  .links {
+    display: flex;
+    gap: var(--space-1);
+  }
+
+  .link {
+    position: relative;
+    min-height: 2.5rem;
+    padding-inline: var(--space-4);
+    border-radius: var(--radius-pill);
+    font-size: var(--fs-sm);
+  }
+
+  .link:hover,
+  .link[aria-current='location'] {
+    background: transparent;
+  }
+
+  .link:hover {
+    background: var(--color-primary-soft);
+  }
+
+  /* Marca a seção atual com um traço de destaque */
+  .link::after {
+    content: '';
+    position: absolute;
+    left: var(--space-4);
+    right: var(--space-4);
+    bottom: 0.3rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform var(--dur-base) var(--ease-out);
+  }
+
+  .link[aria-current='location']::after {
+    transform: scaleX(1);
+  }
+}
